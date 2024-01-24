@@ -16,10 +16,12 @@ def transformer_encoder(inputs, num_heads, dff, rate=0.1):
 
 def conv_block(inputs, num_filters):
     x = layers.Conv2D(num_filters, 3, padding="same")(inputs)
+    x = layers.MaxPooling2D((2, 2))(x)
     x = layers.BatchNormalization()(x)
     x = layers.Activation("relu")(x)
 
     x = layers.Conv2D(num_filters, 3, padding="same")(x)
+    x = layers.MaxPooling2D((2, 2))(x)
     x = layers.BatchNormalization()(x)
     x = layers.Activation("relu")(x)
 
