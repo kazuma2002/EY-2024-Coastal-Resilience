@@ -1,0 +1,4 @@
+1. Use pre-event images as a training data
+2. Annotate(label) more images
+3. Try another damage detection model
+4. Create synthetic data to balance training classes
