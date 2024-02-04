@@ -3,3 +3,4 @@ matplotlib
 GDAL
 rasterio
 ultralytics
+labelme2yolo
