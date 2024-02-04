@@ -5,13 +5,20 @@
     "context": "."
   },
   "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.autopep8Enabled": true,
+    "editor.formatOnSave": true
   },
   "extensions": [
     "ms-python.python",
-    "ms-toolsai.jupyter"
+    "ms-python.vscode-pylance",
+    "ms-toolsai.jupyter",
+    "eamodio.gitlens"
   ],
   "forwardPorts": [],
   "postCreateCommand": "pip install -r requirements.txt",
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspace"
 }
