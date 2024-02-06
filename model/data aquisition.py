@@ -92,13 +92,17 @@ def generate_tiles(input_file, output_dir,grid_x,grid_y):
 
     print("Tiles generation completed.")
 
-input_file = "./Post_Event_San_Juan.tif"
-output_dir = "./Post_Event_Grids_In_TIFF"
+post_event_input_file = "./Post_Event_San_Juan.tif"
+post_event_output_dir = "./Post_Event_Grids_In_TIFF"
 grid_x = 512
 grid_y = 512
-generate_tiles(input_file, output_dir,grid_x,grid_y)
+generate_tiles(post_event_input_file, post_event_output_dir, grid_x, grid_y)
 
-# Add Pre-event file here
+pre_event_input_file = "./Pre_Event_San_Juan.tif"
+pre_event_output_dir = "./Pre_Event_Grids_In_TIFF"
+grid_x = 512
+grid_y = 512
+generate_tiles(pre_event_input_file, pre_event_output_dir, grid_x, grid_y)
 
 def convert_tiff_to_jpeg(input_dir,output_dir):
     # check if output_dir exists, if not create it
@@ -121,12 +125,15 @@ def convert_tiff_to_jpeg(input_dir,output_dir):
             img.save(os.path.join(output_dir, output_filename), 'JPEG')
     print("Conversion from TIFF to JPEG completed.")
 
-# specify directory
-input_dir = "./Post_Event_Grids_In_TIFF"
-output_dir = "./Post_Event_Grids_In_JPEG"
-convert_tiff_to_jpeg(input_dir,output_dir)
+# Convert post-event TIFF grids to JPEG
+post_event_input_dir = "./Post_Event_Grids_In_TIFF"
+post_event_output_dir = "./Post_Event_Grids_In_JPEG"
+convert_tiff_to_jpeg(post_event_input_dir, post_event_output_dir)
 
-# Add Pre-event directory here
+# Convert pre-event TIFF grids to JPEG
+pre_event_input_dir = "./Pre_Event_Grids_In_TIFF"
+pre_event_output_dir = "./Pre_Event_Grids_In_JPEG"
+convert_tiff_to_jpeg(pre_event_input_dir, pre_event_output_dir)
 
 def rename_files(directory_path):
 # Define the directory path where your files are located
@@ -164,7 +171,8 @@ def rename_files(directory_path):
     
     print("Files renamed successfully.")
 
-rename_files(output_dir)
+rename_files(post_event_output_dir)
+rename_files(pre_event_output_dir)
 
 # !labelme2yolo --json_dir /path/to/labelme_json_dir/
 !labelme2yolo --json_dir ./Annotated_Data
