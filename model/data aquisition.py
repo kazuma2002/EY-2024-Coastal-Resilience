@@ -135,7 +135,7 @@ pre_event_input_dir = "./Pre_Event_Grids_In_TIFF"
 pre_event_output_dir = "./Pre_Event_Grids_In_JPEG"
 convert_tiff_to_jpeg(pre_event_input_dir, pre_event_output_dir)
 
-def rename_files(directory_path):
+def rename_files(directory_path, prefix):
 # Define the directory path where your files are located
     directory_path = directory_path
     
@@ -144,7 +144,7 @@ def rename_files(directory_path):
     
     # Define a prefix for the new file names 
     # Change the prefix as per requirement
-    prefix = "Post_Event_"
+    prefix = str(prefix)
     
     # Start the numbering from 1
     number = 0
@@ -171,8 +171,8 @@ def rename_files(directory_path):
     
     print("Files renamed successfully.")
 
-rename_files(post_event_output_dir)
-rename_files(pre_event_output_dir)
+rename_files(post_event_output_dir, Post_Event_)
+rename_files(pre_event_output_dir, Pre_Event_)
 
 # !labelme2yolo --json_dir /path/to/labelme_json_dir/
 !labelme2yolo --json_dir ./Annotated_Data
